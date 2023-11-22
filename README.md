@@ -1,2 +1,2 @@
 # Kael-Duty-Logs
-Kael Duty Logs
+Coming Soon
