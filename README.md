@@ -25,7 +25,7 @@ Runs at ~ 0.00
 
 # Issues and Suggestions
 
-Please use the GitHub issues system to report issues or make suggestions, when making suggestions, please keep [Suggestion] in the title to make it clear that it is a suggestion.
+Join Discord For Any Issues And Suggestions
 
 ## Connect with us
 
