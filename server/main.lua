@@ -12,6 +12,7 @@ local WebHooks = { -- Has to match with Config.AuthJobs list
 
 RegisterNetEvent("kael-dutylog:server:userjoined", function(Job, Duty)
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return end
     local CitizenID = Player.PlayerData.citizenid
     local PlayerName = Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.name .. ')'
     local DiscordID  = QBCore.Functions.GetIdentifier(source, 'discord')
@@ -30,6 +31,7 @@ end)
 
 RegisterNetEvent("kael-dutylog:server:onDuty", function(Job, Duty)
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return end
     local CitizenID = Player.PlayerData.citizenid
     local PlayerName = Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.name .. ')'
     local DiscordID  = QBCore.Functions.GetIdentifier(source, 'discord')
@@ -48,6 +50,7 @@ end)
 
 RegisterNetEvent("kael-dutylog:server:offDuty", function(Job, Duty)
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return end
     local CitizenID = Player.PlayerData.citizenid
     local PlayerName = Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.name .. ')'
     local DiscordID  = QBCore.Functions.GetIdentifier(source, 'discord')
@@ -66,6 +69,7 @@ end)
 AddEventHandler("playerDropped", function(reason)
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return end
     local CitizenID = Player.PlayerData.citizenid
     local Job = Player.PlayerData.job.name
     local PlayerName = Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.name .. ')'
@@ -114,7 +118,7 @@ function CalculateTimeText(Duration)
         TimeText = tostring(math.floor(Duration)) .. " Seconds"
     elseif Duration >= 60 and Duration < 3600 then
         TimeText = tostring(math.floor(Duration / 60)) .. " Minutes"
-    elseif duration >= 3600 then
+    elseif Duration >= 3600 then
         TimeText = tostring(math.floor(Duration / 3600) .. " Hours, "..tostring(math.floor(math.fmod(Duration, 3600)) / 60)) .. " Minutes"
     end
     return TimeText
